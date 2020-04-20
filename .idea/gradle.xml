@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/fragmentoperations" />
+            <option value="$PROJECT_DIR$/locationfragment" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
