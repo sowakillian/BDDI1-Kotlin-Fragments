@@ -83,7 +83,7 @@ class LocationFragment: Fragment() {
                     labelPosition.text = "Latitude: ${location?.latitude.toString()} \nLongitude: ${location?.longitude.toString()}"
                 }
         } else {
-            showPosition(labelPosition, false)
+            labelPosition.text = "Permission refusée, erreur"
         }
     }
 
