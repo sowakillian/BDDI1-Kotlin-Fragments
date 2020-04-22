@@ -61,29 +61,26 @@ class ListArticleFragment: Fragment() {
             bindData(result)
         }
     }
+
     //S'execute sur le thread principal
     private suspend fun bindData(result: List<Article>) {
         withContext(Dispatchers.Main) {
             Log.d("Articles", result.toString())
 
-            val articles = result
-            //créer une instance de l'adapteur
-            val adapterRecycler = ArticleAdapter(articles)
-            //définir l'orientation des élements (vertical)
-            recyclerView.layoutManager =
-                LinearLayoutManager(context)
-            //associer l'adapter à la recyclerview
-            recyclerView.adapter = adapterRecycler
-
+            bindRecycler(result)
         }
+    }
+
+    private fun bindRecycler(articles: List<Article>) {
+        val adapterRecycler = ArticleAdapter(articles)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapterRecycler
     }
 
     companion object {
         const val ARGS_CATEGORY = "ARGS_CATEGORY"
         fun newInstance(operation: String):ListArticleFragment {
             return ListArticleFragment().apply {
-                //On sauvegarde l’opération dans les arguments,
-                //Si le fragment se recrée, la valeur sera restaurée
                 arguments = bundleOf(ARGS_CATEGORY to operation)
             }
         }

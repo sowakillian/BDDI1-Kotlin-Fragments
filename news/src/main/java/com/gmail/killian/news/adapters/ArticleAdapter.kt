@@ -22,10 +22,10 @@ class ArticleAdapter(private val dataset: List<Article>) :
     class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
         fun bind(item: Article) {
             val txtTitle = root.findViewById<TextView>(R.id.article_title)
-            val txtDesc = root.findViewById<TextView>(R.id.article_description)
+            val txtAuthor = root.findViewById<TextView>(R.id.article_author)
             val articleImage = root.findViewById<ImageView>(R.id.article_image)
-            txtTitle.text = "${item.title.take(60)}"
-            txtDesc.text = item.description
+            txtTitle.text = "${item.title.take(100)}"
+            txtAuthor.text = item.author
 
             Log.d("itemUrl", item.url)
             Glide.with(root)  //2

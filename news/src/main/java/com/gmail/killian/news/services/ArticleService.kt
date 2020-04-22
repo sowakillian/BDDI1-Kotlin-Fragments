@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ArticleService {
-    @GET("/v2/everything?apiKey=ce6a846e8d63468380b8b88d00b8c2ec")
+    @GET("/v2/everything")
     fun list(@Query("q") q: String?): Call<ArticleResult>
 }
 
