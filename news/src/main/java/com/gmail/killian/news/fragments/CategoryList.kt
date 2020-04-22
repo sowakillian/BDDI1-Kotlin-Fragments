@@ -36,8 +36,6 @@ class CategoryList: Fragment(), OnItemClickListener {
     }
 
     override fun onItemClicked(category: Category) {
-        Toast.makeText(context,"User name ${category.name} \n Phone:${category.description}", Toast.LENGTH_LONG)
-            .show()
         activity?.change(ListArticleFragment.newInstance(category.name))
     }
 
