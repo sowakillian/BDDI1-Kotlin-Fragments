@@ -23,9 +23,16 @@ class ArticleAdapter(private val dataset: List<Article>) :
         fun bind(item: Article) {
             val txtTitle = root.findViewById<TextView>(R.id.article_title)
             val txtDesc = root.findViewById<TextView>(R.id.article_description)
-            val viewImage = root.findViewById<ImageView>(R.id.category_image)
-            txtTitle.text = item.title
+            val articleImage = root.findViewById<ImageView>(R.id.article_image)
+            txtTitle.text = "${item.title.take(60)}"
             txtDesc.text = item.description
+
+            Log.d("itemUrl", item.url)
+            Glide.with(root)  //2
+                .load(item.urlToImage)
+                .placeholder(R.drawable.coming_article_photo)
+                .centerCrop()
+                .into(articleImage)
 
         }
     }

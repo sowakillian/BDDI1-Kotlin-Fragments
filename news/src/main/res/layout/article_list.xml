@@ -5,17 +5,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <ImageView
+        android:id="@+id/category_image"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_foreground"
+    />
+
+    <View
+        app:layout_constraintStart_toStartOf="@id/category_image"
+        app:layout_constraintTop_toTopOf="@id/category_image"
+        app:layout_constraintBottom_toBottomOf="@id/category_image"
+        app:layout_constraintEnd_toEndOf="@id/category_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/category_title_bg"
+        android:alpha="1"
+        />
 
     <TextView
         android:id="@+id/recyclerTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/category_image"
+        app:layout_constraintBottom_toBottomOf="@id/category_image"
+        app:layout_constraintLeft_toLeftOf="@id/category_image"
+        app:layout_constraintRight_toRightOf="@id/category_image"
         android:text="Catégorie"
-        android:textAlignment="center"
-        android:padding="20dp"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
         />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -24,7 +48,7 @@
         tools:listitem="@layout/article_list_item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recyclerTitle"
+        app:layout_constraintTop_toBottomOf="@id/category_image"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
